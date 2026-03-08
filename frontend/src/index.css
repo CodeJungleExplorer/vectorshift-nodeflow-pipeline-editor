@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg-primary:     #0d0f14;
+  --bg-secondary:   #13161e;
+  --bg-tertiary:    #1a1e29;
+  --bg-node:        #181c26;
+  --bg-node-header: #1f2433;
+  --border-subtle:  rgba(255,255,255,0.07);
+  --accent:         #fbbf24;
+  --text-primary:   #e8eaf0;
+  --text-secondary: #8892a4;
+  --text-muted:     #4a5568;
+  --shadow-node:    0 4px 24px rgba(0,0,0,0.5);
+  --radius-node:    10px;
+  --radius-xs:      4px;
+  --font-mono:      'JetBrains Mono', monospace;
+  --font-sans:      'DM Sans', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ReactFlow */
+.react-flow__renderer,
+.react-flow__background { background: var(--bg-primary) !important; }
+.react-flow__background pattern circle { fill: rgba(255,255,255,0.04) !important; }
+.react-flow__edge-path { stroke: rgba(251,191,36,0.5) !important; stroke-width: 1.5px !important; }
+.react-flow__connection-line { stroke: rgba(251,191,36,0.7) !important; stroke-width: 1.5px !important; }
+
+.react-flow__controls {
+  background: var(--bg-tertiary) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 6px !important; overflow: hidden !important;
+}
+.react-flow__controls-button {
+  background: var(--bg-tertiary) !important;
+  border-bottom: 1px solid var(--border-subtle) !important;
+  fill: var(--text-secondary) !important;
+}
+.react-flow__controls-button:hover { background: var(--bg-node-header) !important; fill: var(--accent) !important; }
+
+.react-flow__minimap { background: var(--bg-secondary) !important; border: 1px solid var(--border-subtle) !important; border-radius: 6px !important; }
+.react-flow__minimap-mask { fill: rgba(13,15,20,0.7) !important; }
+
+.react-flow__node.selected .base-node-wrapper {
+  outline: 1.5px solid var(--accent) !important;
+}
+
+/* Handles */
+.react-flow__handle {
+  width: 12px !important; height: 12px !important;
+  background: var(--bg-primary) !important;
+  border: 2px solid var(--accent) !important;
+  border-radius: 50% !important;
+}
+.react-flow__handle:hover { box-shadow: 0 0 8px rgba(251,191,36,0.6) !important; }
+
+/* Form elements */
+.node-input, .node-select, .node-textarea {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-xs);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 5px 8px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.15s;
+}
+.node-input:focus, .node-select:focus, .node-textarea:focus { border-color: rgba(251,191,36,0.45); }
+.node-select option { background: var(--bg-secondary); }
+.node-textarea { resize: none; line-height: 1.5; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 2px; }
